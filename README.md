@@ -6,6 +6,7 @@
 - It should be possible to enroll a new patient (create)
 - It should be possible to delete a patient
 - It should be possible to update a patient
+- The client application should be deployed to Firebase. If the backend is running locally, opening the deployment locally should still work.
 
 ## Bonus requirements
 - It should be possible to create a new disease which patients may be diagnosed with
