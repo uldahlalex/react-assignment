@@ -61,13 +61,6 @@ export interface Patients {
    * @maxLength 255
    */
   name: string;
-  /** @format date */
-  date_of_birth: string;
-  /**
-   * @format timestamp with time zone
-   * @default "CURRENT_TIMESTAMP"
-   */
-  created_at?: string;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, HeadersDefaults, ResponseType } from "axios";
@@ -115,7 +108,7 @@ export class HttpClient<SecurityDataType = unknown> {
   private format?: ResponseType;
 
   constructor({ securityWorker, secure, format, ...axiosConfig }: ApiConfig<SecurityDataType> = {}) {
-    this.instance = axios.create({ ...axiosConfig, baseURL: axiosConfig.baseURL || "http://0.0.0.0:3000" });
+    this.instance = axios.create({ ...axiosConfig, baseURL: axiosConfig.baseURL || "http://localhost:3000" });
     this.secure = secure;
     this.format = format;
     this.securityWorker = securityWorker;
@@ -207,7 +200,7 @@ export class HttpClient<SecurityDataType = unknown> {
 /**
  * @title standard public schema
  * @version 12.2.2
- * @baseUrl http://0.0.0.0:3000
+ * @baseUrl http://localhost:3000
  * @externalDocs https://postgrest.org/en/v12/api.html
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
@@ -460,10 +453,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         id?: string;
         /** @format character varying */
         name?: string;
-        /** @format date */
-        date_of_birth?: string;
-        /** @format timestamp with time zone */
-        created_at?: string;
         /** Filtering Columns */
         select?: string;
         /** Ordering */
@@ -519,10 +508,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         id?: string;
         /** @format character varying */
         name?: string;
-        /** @format date */
-        date_of_birth?: string;
-        /** @format timestamp with time zone */
-        created_at?: string;
       },
       params: RequestParams = {},
     ) =>
@@ -547,10 +532,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         id?: string;
         /** @format character varying */
         name?: string;
-        /** @format date */
-        date_of_birth?: string;
-        /** @format timestamp with time zone */
-        created_at?: string;
       },
       params: RequestParams = {},
     ) =>

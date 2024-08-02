@@ -5,7 +5,10 @@ import {toast} from "react-hot-toast";
 export const baseUrl = 'http://localhost:3000';
 
 export const http = new Api({
-    baseURL: baseUrl
+    baseURL: baseUrl,
+    headers: {
+        "Prefer": "return=representation"
+    }
 });
 
 http.instance.interceptors.request.use(config => {

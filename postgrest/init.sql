@@ -6,9 +6,7 @@ GRANT USAGE ON SCHEMA public TO web_anon;
 
 CREATE TABLE patients (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    date_of_birth DATE NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE diseases (
@@ -26,13 +24,13 @@ CREATE TABLE diagnoses (
 );
 
 -- Insert sample data
-INSERT INTO patients (name, date_of_birth, created_at) VALUES
-    ('Patient 1', '1980-03-20', now()),
-    ('Patient 2', '1975-07-15', now());
+INSERT INTO patients (name) VALUES
+    ('Peter'),
+    ('Bob');
 
 INSERT INTO diseases (name) VALUES
-    ('Disease 1'),
-    ('Disease 2');
+    ('Flu'),
+    ('Diarrhea');
 
 INSERT INTO diagnoses (patient_id, disease_id, diagnosis_date) VALUES
     (1, 1, now()),
