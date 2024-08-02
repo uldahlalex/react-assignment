@@ -30,6 +30,8 @@ You can clone the recommended startup boilerplate including the backend program 
 ```bash
 git clone https://github.com/uldahlalex/react-assignment
 ```
+The "client" folder contains relevant dependencies and configuration for the frontend. 
+You are also free to build the client app completely from scratch if you prefer.
 
 ## How to start the backend
 Have docker daemon running. From the "postgrest" directory in this project, run:
