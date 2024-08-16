@@ -187,7 +187,7 @@ export class HttpClient<SecurityDataType = unknown> {
       ...requestParams,
       headers: {
         ...(requestParams.headers || {}),
-        ...(type && type !== ContentType.FormData ? { "Content-Type": type } : {}),
+        ...(type ? { "Content-Type": type } : {}),
       },
       params: query,
       responseType: responseFormat,
@@ -199,9 +199,9 @@ export class HttpClient<SecurityDataType = unknown> {
 
 /**
  * @title standard public schema
- * @version 12.2.2
+ * @version 12.2.3
  * @baseUrl http://localhost:3000
- * @externalDocs https://postgrest.org/en/v12/api.html
+ * @externalDocs https://postgrest.org/en/v12/references/api.html
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
   /**
@@ -229,9 +229,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     diseasesList: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
         /** Filtering Columns */
         select?: string;
@@ -284,9 +282,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     diseasesDelete: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
       },
       params: RequestParams = {},
@@ -308,9 +304,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     diseasesPartialUpdate: (
       diseases: Diseases,
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
       },
       params: RequestParams = {},
@@ -333,13 +327,9 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     diagnosesList: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format integer */
         patient_id?: string;
-        /** @format integer */
         disease_id?: string;
-        /** @format timestamp with time zone */
         diagnosis_date?: string;
         /** Filtering Columns */
         select?: string;
@@ -392,13 +382,9 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     diagnosesDelete: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format integer */
         patient_id?: string;
-        /** @format integer */
         disease_id?: string;
-        /** @format timestamp with time zone */
         diagnosis_date?: string;
       },
       params: RequestParams = {},
@@ -420,13 +406,9 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     diagnosesPartialUpdate: (
       diagnoses: Diagnoses,
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format integer */
         patient_id?: string;
-        /** @format integer */
         disease_id?: string;
-        /** @format timestamp with time zone */
         diagnosis_date?: string;
       },
       params: RequestParams = {},
@@ -449,9 +431,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     patientsList: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
         /** Filtering Columns */
         select?: string;
@@ -504,9 +484,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     patientsDelete: (
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
       },
       params: RequestParams = {},
@@ -528,9 +506,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     patientsPartialUpdate: (
       patients: Patients,
       query?: {
-        /** @format integer */
         id?: string;
-        /** @format character varying */
         name?: string;
       },
       params: RequestParams = {},
