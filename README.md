@@ -28,15 +28,18 @@ docker compose up
 
 I have made a swagger.json file (in the "client" directory) which documents the API running on port 3000 when using docker compose up.
 
-Instead of using the Swagger UI in a browser, I recommend opening it up in Webstorm. You should see this:
+You can either open it with Webstorm and it will look like this:
 ![img.png](img.png) 
+
 (Notice the buttons in the top right corner to see json / visual representation). 
-You can test HTTP requests to the server using this. 
+But for many Webstorm doesn't allow for sending HTTP requests, so I recommend copying the file contents from swagger.json and pasting into https://editor.swagger.io/
+It might ask if you want to convert to YAML. Just say yes, and you should have the Hospital API swagger page in your browser like this:
+
+![img_1.png](img_1.png)
 
 The "npm run scaffold" command from the client directory also uses this swagger.json file to generate the API Client code.
-You can also choose to use fetch() as an HTTP client and make your own models / generate them using https://transform.tools/json-to-typescript if you prefer.
 
-When sending HTTP POST requests I always recommend using 
+You can also choose to use fetch() as an HTTP client and make your own models / generate them using https://transform.tools/json-to-typescript if you prefer.
 
 You can also open up the Postgres Database manually using Datagrip / whatever other Database browser if you would like to. 
 It runs on localhost:5432 and requires the credentials listed in docker-compose.yml (username "testuser" password "testpass" and databasename "testdb")
