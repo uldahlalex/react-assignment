@@ -23,7 +23,20 @@ From the "postgrest" directory in this project, run:
 ```bash
 docker compose up
 ```
-When the backend runs, you should be able to go to http://localhost:3001 and see the Swagger UI documentation page for the backend REST API HTTP Server.
+
+**All "client" commands like npm install, npm run dev, etc should be executed inside the "client" directory**
+
+I have made a swagger.json file (in the "client" directory) which documents the API running on port 3000 when using docker compose up.
+
+Instead of using the Swagger UI in a browser, I recommend opening it up in Webstorm. You should see this:
+![img.png](img.png) 
+(Notice the buttons in the top right corner to see json / visual representation). 
+You can test HTTP requests to the server using this. 
+
+The "npm run scaffold" command from the client directory also uses this swagger.json file to generate the API Client code.
+You can also choose to use fetch() as an HTTP client and make your own models / generate them using https://transform.tools/json-to-typescript if you prefer.
+
+When sending HTTP POST requests I always recommend using 
 
 You can also open up the Postgres Database manually using Datagrip / whatever other Database browser if you would like to. 
 It runs on localhost:5432 and requires the credentials listed in docker-compose.yml (username "testuser" password "testpass" and databasename "testdb")
