@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {http} from "../http.ts";
+import {apiClient} from "../apiClient.ts";
 import {AxiosResponse} from "axios";
 import {Patients} from "../Api.ts";
 
@@ -9,7 +9,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        http.patients.patientsList().then((result: AxiosResponse<Patients[]> )=> {
+        apiClient.patients.patientsList().then((result: AxiosResponse<Patients[]> )=> {
             console.log(result.data)
         })
     },[])
