@@ -90,6 +90,7 @@
         ]
       },
       "post": {
+        "description": "Creates a new disease. The API returns an array containing the created object.",
         "parameters": [
           {
             "$ref": "#/parameters/body.diseases"
@@ -105,7 +106,10 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/diseases"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/diseases"
+              }
             }
           }
         },
@@ -215,6 +219,7 @@
         ]
       },
       "post": {
+        "description": "Creates a new diagnosis. The API returns an array containing the created object.",
         "parameters": [
           {
             "$ref": "#/parameters/body.diagnoses"
@@ -230,7 +235,10 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/diagnoses"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/diagnoses"
+              }
             }
           }
         },
@@ -346,6 +354,7 @@
         ]
       },
       "post": {
+        "description": "Creates a new patient. The API returns an array containing the created object.",
         "parameters": [
           {
             "$ref": "#/parameters/body.patients"
@@ -361,7 +370,10 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/patients"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/patients"
+              }
             }
           }
         },
